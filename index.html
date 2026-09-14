@@ -280,6 +280,133 @@
     .wa-float:hover { transform: scale(1.06); }
     .wa-float:focus-visible, .btn:focus-visible, a:focus-visible { outline: 3px solid rgba(182,138,74,.58); outline-offset: 4px; }
 
+    /* Panel administrativo: permanece totalmente oculto hasta activar el acceso secreto. */
+    .admin-dialog {
+      width: min(960px, calc(100% - 24px));
+      max-height: min(90vh, 820px);
+      margin: auto;
+      padding: 0;
+      overflow: hidden;
+      border: 1px solid rgba(224,189,105,.38);
+      border-radius: 26px;
+      color: var(--ink);
+      background: #07101b;
+      box-shadow: 0 30px 100px rgba(0,0,0,.75);
+    }
+    .admin-dialog::backdrop { background: rgba(0,3,8,.78); backdrop-filter: blur(8px); }
+    .admin-shell { display: flex; flex-direction: column; max-height: min(90vh, 820px); }
+    .admin-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 20px 22px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(120deg, #0d2238, #05090f);
+    }
+    .admin-title { margin: 0; font-family: Georgia, serif; font-size: 1.35rem; }
+    .admin-subtitle { margin: 2px 0 0; color: var(--muted); font-size: .78rem; }
+    .admin-close {
+      flex: 0 0 auto;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--ink);
+      background: rgba(255,255,255,.04);
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+    .admin-content { padding: 22px; overflow: auto; }
+    .admin-login { width: min(460px, 100%); margin: 10px auto 20px; }
+    .admin-login h3 { margin-bottom: 8px; font-family: Georgia, serif; font-size: 1.7rem; }
+    .admin-login > p { color: var(--muted); }
+    .admin-notice {
+      margin: 16px 0;
+      padding: 14px 16px;
+      border: 1px solid rgba(224,189,105,.28);
+      border-radius: 14px;
+      color: #e8d7a6;
+      background: rgba(224,189,105,.07);
+      font-size: .83rem;
+    }
+    .admin-form { display: grid; gap: 15px; }
+    .admin-field { display: grid; gap: 6px; }
+    .admin-field label { color: #e8d7a6; font-size: .78rem; font-weight: 800; letter-spacing: .04em; }
+    .admin-field input,
+    .admin-field textarea,
+    .admin-field select {
+      width: 100%;
+      min-height: 45px;
+      padding: 10px 12px;
+      border: 1px solid rgba(224,189,105,.25);
+      border-radius: 11px;
+      color: var(--ink);
+      background: #0b1a2b;
+      font: inherit;
+    }
+    .admin-field textarea { min-height: 86px; resize: vertical; }
+    .admin-field input:focus,
+    .admin-field textarea:focus,
+    .admin-field select:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+    .admin-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .admin-button {
+      min-height: 43px;
+      padding: 0 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--ink);
+      background: rgba(255,255,255,.05);
+      cursor: pointer;
+      font: inherit;
+      font-size: .84rem;
+      font-weight: 800;
+    }
+    .admin-button.primary { border-color: transparent; color: #07090d; background: linear-gradient(135deg, #f3dc91, #c99a3d); }
+    .admin-button.danger { color: #ffc2c2; border-color: rgba(255,110,110,.25); }
+    .admin-button:disabled { opacity: .48; cursor: wait; }
+    .admin-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+    .admin-tabs { display: flex; gap: 8px; }
+    .admin-tab[aria-selected="true"] { color: #07090d; background: var(--gold); }
+    .admin-status { color: var(--muted); font-size: .78rem; }
+    .admin-list { display: grid; gap: 10px; }
+    .admin-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 14px 15px;
+      border: 1px solid rgba(224,189,105,.16);
+      border-radius: 15px;
+      background: rgba(12,30,49,.72);
+    }
+    .admin-item strong { display: block; line-height: 1.3; }
+    .admin-item small { color: var(--muted); }
+    .admin-item-actions { display: flex; gap: 7px; }
+    .admin-icon-button {
+      min-height: 36px;
+      padding: 0 11px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      color: var(--ink);
+      background: transparent;
+      cursor: pointer;
+      font-size: .75rem;
+      font-weight: 750;
+    }
+    .admin-editor {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid rgba(224,189,105,.26);
+      border-radius: 18px;
+      background: #050b13;
+    }
+    .admin-editor h3 { margin-bottom: 16px; font-family: Georgia, serif; }
+    .admin-form-grid { display: grid; gap: 14px; }
+    .admin-feedback { min-height: 22px; margin: 12px 0 0; color: #efd58d; font-size: .82rem; }
+    .admin-empty { padding: 28px 16px; border: 1px dashed var(--line); border-radius: 15px; color: var(--muted); text-align: center; }
+    [hidden] { display: none !important; }
+
     @media (min-width: 680px) {
       .container { width: min(1120px, calc(100% - 64px)); }
       .grid { grid-template-columns: repeat(2, 1fr); }
@@ -287,6 +414,8 @@
       .contact-panel { padding: 58px; }
       .academy-brand { grid-template-columns: 132px 1fr; padding: 20px 30px; }
       .academy-logo { width: 132px; max-height: 138px; }
+      .admin-form-grid { grid-template-columns: repeat(2, 1fr); }
+      .admin-field.wide { grid-column: 1 / -1; }
     }
     @media (min-width: 920px) {
       .nav-links { display: flex; }
@@ -350,7 +479,7 @@
         <div class="reveal">
           <p class="eyebrow">Sobre Kedavra Nails</p>
           <h2>Aprender también puede sentirse mágico.</h2>
-          <p class="section-copy" id="aboutText">Soy Lara, Nail artist y educadora. Creé Kedavra Nails para compartir técnicas claras, actuales y aplicables que te ayuden a crecer con seguridad, desde tu primera práctica hasta tu próximo gran paso profesional.</p>
+          <p class="section-copy" id="aboutText">Soy [TU NOMBRE], nail artist y educadora. Creé Kedavra Nails para compartir técnicas claras, actuales y aplicables que te ayuden a crecer con seguridad, desde tu primera práctica hasta tu próximo gran paso profesional.</p>
         </div>
         <div class="about-card reveal">
           <blockquote>“No se trata solo de hacer uñas lindas. Se trata de crear confianza con tus propias manos.”</blockquote>
@@ -411,8 +540,98 @@
     </div>
   </footer>
 
+  <dialog class="admin-dialog" id="adminDialog" aria-labelledby="adminTitle">
+    <div class="admin-shell">
+      <header class="admin-header">
+        <div>
+          <h2 class="admin-title" id="adminTitle">Administrar catálogo</h2>
+          <p class="admin-subtitle">Cursos y ebooks de Kedavra Nails</p>
+        </div>
+        <button class="admin-close" id="adminClose" type="button" aria-label="Cerrar panel">✕</button>
+      </header>
+      <div class="admin-content">
+        <section class="admin-login" id="adminLoginView">
+          <h3>Acceso privado</h3>
+          <p>Ingresá con la cuenta autorizada para modificar el contenido publicado.</p>
+          <div class="admin-notice" id="adminSetupNotice" hidden>
+            La conexión online todavía no está configurada. Podés probar el panel en este dispositivo; los cambios locales no se publicarán para otras personas.
+          </div>
+          <form class="admin-form" id="adminLoginForm">
+            <div class="admin-field">
+              <label for="adminEmail">Email</label>
+              <input id="adminEmail" name="email" type="email" autocomplete="username" required>
+            </div>
+            <div class="admin-field">
+              <label for="adminPassword">Contraseña</label>
+              <input id="adminPassword" name="password" type="password" autocomplete="current-password" minlength="8" required>
+            </div>
+            <div class="admin-actions">
+              <button class="admin-button primary" id="adminLoginButton" type="submit">Ingresar</button>
+              <button class="admin-button" id="adminLocalButton" type="button" hidden>Probar modo local</button>
+            </div>
+          </form>
+          <p class="admin-feedback" id="adminLoginFeedback" role="status" aria-live="polite"></p>
+        </section>
+
+        <section id="adminPanelView" hidden>
+          <div class="admin-toolbar">
+            <div class="admin-tabs" role="tablist" aria-label="Tipo de contenido">
+              <button class="admin-button admin-tab" type="button" role="tab" data-admin-type="course" aria-selected="true">Cursos</button>
+              <button class="admin-button admin-tab" type="button" role="tab" data-admin-type="ebook" aria-selected="false">Ebooks</button>
+            </div>
+            <div class="admin-actions">
+              <span class="admin-status" id="adminModeStatus"></span>
+              <button class="admin-button" id="adminLogout" type="button">Cerrar sesión</button>
+            </div>
+          </div>
+          <div class="admin-actions" style="margin-bottom:14px">
+            <button class="admin-button primary" id="adminAdd" type="button">Agregar curso</button>
+            <button class="admin-button" id="adminPublish" type="button">Guardar cambios</button>
+          </div>
+          <div class="admin-list" id="adminItemsList"></div>
+
+          <form class="admin-editor" id="adminEditor" hidden>
+            <h3 id="adminEditorTitle">Agregar contenido</h3>
+            <div class="admin-form-grid">
+              <div class="admin-field">
+                <label for="itemName">Nombre</label>
+                <input id="itemName" name="name" maxlength="90" required>
+              </div>
+              <div class="admin-field">
+                <label for="itemVisual" id="itemVisualLabel">Ícono</label>
+                <input id="itemVisual" name="visual" maxlength="50" required>
+              </div>
+              <div class="admin-field wide">
+                <label for="itemDescription">Descripción</label>
+                <textarea id="itemDescription" name="description" maxlength="360" required></textarea>
+              </div>
+              <div class="admin-field">
+                <label for="itemTags">Etiquetas separadas por comas</label>
+                <input id="itemTags" name="tags" maxlength="180" placeholder="Principiante, 4 clases, Incluye guía" required>
+              </div>
+              <div class="admin-field">
+                <label for="itemColor">Color de la tarjeta</label>
+                <input id="itemColor" name="color" type="color" value="#102a43" required>
+              </div>
+              <div class="admin-field wide">
+                <label for="itemMessage">Mensaje automático de WhatsApp</label>
+                <textarea id="itemMessage" name="message" maxlength="360" required></textarea>
+              </div>
+            </div>
+            <div class="admin-actions" style="margin-top:16px">
+              <button class="admin-button primary" type="submit">Aplicar</button>
+              <button class="admin-button" id="adminCancelEdit" type="button">Cancelar</button>
+            </div>
+          </form>
+          <p class="admin-feedback" id="adminPanelFeedback" role="status" aria-live="polite"></p>
+        </section>
+      </div>
+    </div>
+  </dialog>
+
   <a class="wa-float js-general-wa" href="#" target="_blank" rel="noopener" aria-label="Consultar por WhatsApp">W</a>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     /* ================================================================
        ZONA EDITABLE — Reemplazá estos datos con la información real.
@@ -422,11 +641,15 @@
     const SITE = {
       whatsapp: "549NUMERO_WHATSAPP",
       instagram: "https://instagram.com/TU_USUARIO",
-      city: "Bahia Blanca",
-      generalMessage: "¡Hola! Vi la página de Kedavra Nails y quisiera consultar por sus cursos y ebooks."
+      city: "[TU CIUDAD]",
+      generalMessage: "¡Hola! Vi la página de Kedavra Nails y quisiera consultar por sus cursos y ebooks.",
+
+      /* Conexión segura del panel. Completá estos dos valores al crear el proyecto en Supabase. */
+      supabaseUrl: "https://TU_PROYECTO.supabase.co",
+      supabasePublishableKey: "TU_CLAVE_PUBLICABLE"
     };
 
-    const COURSES = [
+    const DEFAULT_COURSES = [
       {
         name: "Nail Art desde Cero",
         icon: "✦",
@@ -453,7 +676,7 @@
       }
     ];
 
-    const EBOOKS = [
+    const DEFAULT_EBOOKS = [
       {
         name: "Guía de Preparación Perfecta",
         shortTitle: "Preparación Perfecta",
@@ -480,41 +703,22 @@
       }
     ];
 
-    const whatsappUrl = (message) =>
+    const cloneData = value => JSON.parse(JSON.stringify(value));
+    const escapeHtml = value => String(value ?? "").replace(/[&<>'"]/g, character => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;"
+    })[character]);
+    const cleanText = (value, max = 360) => String(value ?? "").trim().slice(0, max);
+    const cleanColor = value => /^#[0-9a-f]{6}$/i.test(String(value)) ? String(value) : "#102a43";
+
+    let coursesData = cloneData(DEFAULT_COURSES);
+    let ebooksData = cloneData(DEFAULT_EBOOKS);
+    let supabaseClient = null;
+    let localAdminMode = false;
+    let activeAdminType = "course";
+    let editingIndex = null;
+
+    const whatsappUrl = message =>
       `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(message)}`;
-
-    function cardTemplate(item, index, type) {
-      const isEbook = type === "ebook";
-      const visual = isEbook
-        ? `<div class="ebook-cover">${item.shortTitle}<small>Kedavra Nails</small></div>`
-        : `<span class="visual-icon" aria-hidden="true">${item.icon}</span>`;
-
-      return `
-        <article class="card reveal">
-          <div class="card-visual" style="--visual-bg:${item.color}">
-            <span class="card-index">0${index + 1}</span>
-            ${visual}
-            <span class="card-type">${isEbook ? "Ebook digital" : "Curso"}</span>
-          </div>
-          <div class="card-body">
-            <h3>${item.name}</h3>
-            <p class="card-description">${item.description}</p>
-            <ul class="tags" aria-label="Características">
-              ${item.tags.map(tag => `<li class="tag">${tag}</li>`).join("")}
-            </ul>
-            <a class="btn btn-primary" href="${whatsappUrl(item.message)}" target="_blank" rel="noopener" aria-label="Consultar por WhatsApp sobre ${item.name}">
-              Consultar por WhatsApp ↗
-            </a>
-          </div>
-        </article>`;
-    }
-
-    document.getElementById("coursesGrid").innerHTML = COURSES.map((item, i) => cardTemplate(item, i, "course")).join("");
-    document.getElementById("ebooksGrid").innerHTML = EBOOKS.map((item, i) => cardTemplate(item, i, "ebook")).join("");
-    document.querySelectorAll(".js-general-wa").forEach(link => link.href = whatsappUrl(SITE.generalMessage));
-    document.querySelectorAll("[data-city]").forEach(el => el.textContent = SITE.city);
-    document.getElementById("instagramLink").href = SITE.instagram;
-    document.getElementById("year").textContent = new Date().getFullYear();
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -525,9 +729,350 @@
       });
     }, { threshold: 0.12 });
 
-    document.querySelectorAll(".reveal").forEach((el, i) => {
-      el.style.transitionDelay = `${Math.min(i % 3, 2) * 70}ms`;
-      observer.observe(el);
+    function normalizeItem(item, type) {
+      const base = {
+        name: cleanText(item?.name, 90),
+        description: cleanText(item?.description),
+        tags: Array.isArray(item?.tags)
+          ? item.tags.map(tag => cleanText(tag, 40)).filter(Boolean).slice(0, 6)
+          : [],
+        color: cleanColor(item?.color),
+        message: cleanText(item?.message)
+      };
+      if (type === "ebook") base.shortTitle = cleanText(item?.shortTitle || item?.name, 50);
+      else base.icon = cleanText(item?.icon || "✦", 8);
+      return base;
+    }
+
+    function normalizeCatalog(content) {
+      if (!content || typeof content !== "object") return null;
+      const courses = Array.isArray(content.courses) ? content.courses.map(item => normalizeItem(item, "course")) : null;
+      const ebooks = Array.isArray(content.ebooks) ? content.ebooks.map(item => normalizeItem(item, "ebook")) : null;
+      return courses && ebooks ? { courses, ebooks } : null;
+    }
+
+    function cardTemplate(item, index, type) {
+      const isEbook = type === "ebook";
+      const visual = isEbook
+        ? `<div class="ebook-cover">${escapeHtml(item.shortTitle)}<small>Kedavra Nails</small></div>`
+        : `<span class="visual-icon" aria-hidden="true">${escapeHtml(item.icon)}</span>`;
+
+      return `
+        <article class="card reveal">
+          <div class="card-visual" style="--visual-bg:${cleanColor(item.color)}">
+            <span class="card-index">${String(index + 1).padStart(2, "0")}</span>
+            ${visual}
+            <span class="card-type">${isEbook ? "Ebook digital" : "Curso"}</span>
+          </div>
+          <div class="card-body">
+            <h3>${escapeHtml(item.name)}</h3>
+            <p class="card-description">${escapeHtml(item.description)}</p>
+            <ul class="tags" aria-label="Características">
+              ${item.tags.map(tag => `<li class="tag">${escapeHtml(tag)}</li>`).join("")}
+            </ul>
+            <a class="btn btn-primary" href="${whatsappUrl(item.message)}" target="_blank" rel="noopener" aria-label="Consultar por WhatsApp sobre ${escapeHtml(item.name)}">
+              Consultar por WhatsApp ↗
+            </a>
+          </div>
+        </article>`;
+    }
+
+    function observeReveals(scope = document) {
+      scope.querySelectorAll(".reveal:not(.visible)").forEach((element, index) => {
+        element.style.transitionDelay = `${Math.min(index % 3, 2) * 70}ms`;
+        observer.observe(element);
+      });
+    }
+
+    function renderCatalog() {
+      const coursesGrid = document.getElementById("coursesGrid");
+      const ebooksGrid = document.getElementById("ebooksGrid");
+      coursesGrid.innerHTML = coursesData.map((item, index) => cardTemplate(item, index, "course")).join("");
+      ebooksGrid.innerHTML = ebooksData.map((item, index) => cardTemplate(item, index, "ebook")).join("");
+      observeReveals(coursesGrid);
+      observeReveals(ebooksGrid);
+    }
+
+    document.querySelectorAll(".js-general-wa").forEach(link => link.href = whatsappUrl(SITE.generalMessage));
+    document.querySelectorAll("[data-city]").forEach(element => element.textContent = SITE.city);
+    document.getElementById("instagramLink").href = SITE.instagram;
+    document.getElementById("year").textContent = new Date().getFullYear();
+    renderCatalog();
+    observeReveals();
+
+    function onlineAdminConfigured() {
+      return /^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(SITE.supabaseUrl)
+        && SITE.supabasePublishableKey.length > 20
+        && !SITE.supabasePublishableKey.includes("TU_CLAVE");
+    }
+
+    async function initializeContent() {
+      if (!onlineAdminConfigured() || !window.supabase?.createClient) {
+        const localDraft = localStorage.getItem("kedavraCatalogDraft");
+        if (localDraft) {
+          try {
+            const catalog = normalizeCatalog(JSON.parse(localDraft));
+            if (catalog) {
+              coursesData = catalog.courses;
+              ebooksData = catalog.ebooks;
+              renderCatalog();
+            }
+          } catch (error) {
+            console.warn("No se pudo recuperar el borrador local.", error);
+          }
+        }
+        return;
+      }
+
+      supabaseClient = window.supabase.createClient(SITE.supabaseUrl, SITE.supabasePublishableKey, {
+        auth: { persistSession: true, autoRefreshToken: true }
+      });
+      const { data, error } = await supabaseClient
+        .from("site_content")
+        .select("content")
+        .eq("id", "catalog")
+        .maybeSingle();
+      if (error) {
+        console.warn("No se pudo cargar el catálogo online; se muestra el contenido incluido.", error.message);
+        return;
+      }
+      const catalog = normalizeCatalog(data?.content);
+      if (catalog) {
+        coursesData = catalog.courses;
+        ebooksData = catalog.ebooks;
+        renderCatalog();
+      }
+    }
+
+    initializeContent();
+
+    const adminDialog = document.getElementById("adminDialog");
+    const adminLoginView = document.getElementById("adminLoginView");
+    const adminPanelView = document.getElementById("adminPanelView");
+    const adminLoginForm = document.getElementById("adminLoginForm");
+    const adminLoginButton = document.getElementById("adminLoginButton");
+    const adminLocalButton = document.getElementById("adminLocalButton");
+    const adminSetupNotice = document.getElementById("adminSetupNotice");
+    const adminLoginFeedback = document.getElementById("adminLoginFeedback");
+    const adminPanelFeedback = document.getElementById("adminPanelFeedback");
+    const adminModeStatus = document.getElementById("adminModeStatus");
+    const adminItemsList = document.getElementById("adminItemsList");
+    const adminEditor = document.getElementById("adminEditor");
+    const adminAdd = document.getElementById("adminAdd");
+
+    function activeItems() {
+      return activeAdminType === "course" ? coursesData : ebooksData;
+    }
+
+    function showLoginView() {
+      adminLoginView.hidden = false;
+      adminPanelView.hidden = true;
+      adminEditor.hidden = true;
+      const configured = onlineAdminConfigured() && Boolean(supabaseClient);
+      adminSetupNotice.hidden = configured;
+      adminLocalButton.hidden = configured;
+      adminLoginButton.disabled = !configured;
+      adminLoginFeedback.textContent = configured ? "" : "Falta conectar la base de datos online.";
+    }
+
+    function showPanelView() {
+      adminLoginView.hidden = true;
+      adminPanelView.hidden = false;
+      adminModeStatus.textContent = localAdminMode ? "Modo local · no publicado" : "Conectado · cambios online";
+      adminPanelFeedback.textContent = "";
+      renderAdminList();
+    }
+
+    async function openAdminPanel() {
+      if (!adminDialog.open) adminDialog.showModal();
+      if (!supabaseClient && onlineAdminConfigured() && window.supabase?.createClient) {
+        supabaseClient = window.supabase.createClient(SITE.supabaseUrl, SITE.supabasePublishableKey, {
+          auth: { persistSession: true, autoRefreshToken: true }
+        });
+      }
+      if (supabaseClient) {
+        const { data } = await supabaseClient.auth.getSession();
+        if (data.session) {
+          localAdminMode = false;
+          showPanelView();
+          return;
+        }
+      }
+      showLoginView();
+    }
+
+    let secretTapCount = 0;
+    let secretTapTimer;
+    document.querySelector(".brand").addEventListener("click", event => {
+      secretTapCount += 1;
+      clearTimeout(secretTapTimer);
+      secretTapTimer = setTimeout(() => { secretTapCount = 0; }, 3500);
+      if (secretTapCount >= 5) {
+        event.preventDefault();
+        secretTapCount = 0;
+        openAdminPanel();
+      }
+    });
+    document.addEventListener("keydown", event => {
+      if (event.altKey && event.shiftKey && event.key.toLowerCase() === "a") openAdminPanel();
+    });
+
+    document.getElementById("adminClose").addEventListener("click", () => adminDialog.close());
+    adminDialog.addEventListener("click", event => {
+      if (event.target === adminDialog) adminDialog.close();
+    });
+
+    adminLoginForm.addEventListener("submit", async event => {
+      event.preventDefault();
+      if (!supabaseClient) return;
+      const formData = new FormData(adminLoginForm);
+      adminLoginButton.disabled = true;
+      adminLoginFeedback.textContent = "Ingresando…";
+      const { error } = await supabaseClient.auth.signInWithPassword({
+        email: cleanText(formData.get("email"), 160),
+        password: String(formData.get("password") || "")
+      });
+      adminLoginButton.disabled = false;
+      if (error) {
+        adminLoginFeedback.textContent = "No se pudo ingresar. Revisá el email y la contraseña.";
+        return;
+      }
+      adminLoginForm.reset();
+      localAdminMode = false;
+      showPanelView();
+    });
+
+    adminLocalButton.addEventListener("click", () => {
+      localAdminMode = true;
+      showPanelView();
+    });
+
+    document.getElementById("adminLogout").addEventListener("click", async () => {
+      if (!localAdminMode && supabaseClient) await supabaseClient.auth.signOut();
+      localAdminMode = false;
+      showLoginView();
+    });
+
+    document.querySelectorAll(".admin-tab").forEach(tab => {
+      tab.addEventListener("click", () => {
+        activeAdminType = tab.dataset.adminType;
+        document.querySelectorAll(".admin-tab").forEach(item => item.setAttribute("aria-selected", String(item === tab)));
+        adminEditor.hidden = true;
+        renderAdminList();
+      });
+    });
+
+    function renderAdminList() {
+      const items = activeItems();
+      adminAdd.textContent = activeAdminType === "course" ? "Agregar curso" : "Agregar ebook";
+      if (!items.length) {
+        adminItemsList.innerHTML = `<div class="admin-empty">Todavía no hay ${activeAdminType === "course" ? "cursos" : "ebooks"}.</div>`;
+        return;
+      }
+      adminItemsList.innerHTML = items.map((item, index) => `
+        <div class="admin-item">
+          <div><strong>${escapeHtml(item.name)}</strong><small>${escapeHtml(item.tags.join(" · "))}</small></div>
+          <div class="admin-item-actions">
+            <button class="admin-icon-button" type="button" data-action="edit" data-index="${index}">Editar</button>
+            <button class="admin-icon-button" type="button" data-action="delete" data-index="${index}">Eliminar</button>
+          </div>
+        </div>`).join("");
+    }
+
+    function openEditor(index = null) {
+      editingIndex = index;
+      const item = index === null ? null : activeItems()[index];
+      document.getElementById("adminEditorTitle").textContent = `${index === null ? "Agregar" : "Editar"} ${activeAdminType === "course" ? "curso" : "ebook"}`;
+      document.getElementById("itemVisualLabel").textContent = activeAdminType === "course" ? "Ícono o símbolo" : "Título corto de portada";
+      document.getElementById("itemName").value = item?.name || "";
+      document.getElementById("itemVisual").value = activeAdminType === "course" ? (item?.icon || "✦") : (item?.shortTitle || "");
+      document.getElementById("itemDescription").value = item?.description || "";
+      document.getElementById("itemTags").value = item?.tags?.join(", ") || "";
+      document.getElementById("itemColor").value = cleanColor(item?.color);
+      document.getElementById("itemMessage").value = item?.message || "";
+      adminEditor.hidden = false;
+      document.getElementById("itemName").focus();
+    }
+
+    adminAdd.addEventListener("click", () => openEditor());
+    document.getElementById("adminCancelEdit").addEventListener("click", () => { adminEditor.hidden = true; });
+
+    adminItemsList.addEventListener("click", event => {
+      const button = event.target.closest("button[data-action]");
+      if (!button) return;
+      const index = Number(button.dataset.index);
+      if (button.dataset.action === "edit") {
+        openEditor(index);
+        return;
+      }
+      const item = activeItems()[index];
+      if (item && confirm(`¿Eliminar “${item.name}”?`)) {
+        activeItems().splice(index, 1);
+        renderAdminList();
+        renderCatalog();
+        adminPanelFeedback.textContent = "Cambio pendiente de guardar.";
+      }
+    });
+
+    adminEditor.addEventListener("submit", event => {
+      event.preventDefault();
+      const formData = new FormData(adminEditor);
+      const rawItem = {
+        name: formData.get("name"),
+        description: formData.get("description"),
+        tags: String(formData.get("tags") || "").split(","),
+        color: formData.get("color"),
+        message: formData.get("message")
+      };
+      if (activeAdminType === "course") rawItem.icon = formData.get("visual");
+      else rawItem.shortTitle = formData.get("visual");
+      const item = normalizeItem(rawItem, activeAdminType);
+      if (!item.name || !item.description || !item.message || !item.tags.length) {
+        adminPanelFeedback.textContent = "Completá todos los campos antes de aplicar.";
+        return;
+      }
+      if (editingIndex === null) activeItems().push(item);
+      else activeItems()[editingIndex] = item;
+      adminEditor.hidden = true;
+      renderAdminList();
+      renderCatalog();
+      adminPanelFeedback.textContent = "Cambio pendiente de guardar.";
+    });
+
+    document.getElementById("adminPublish").addEventListener("click", async event => {
+      const button = event.currentTarget;
+      const content = { courses: coursesData, ebooks: ebooksData };
+      button.disabled = true;
+      adminPanelFeedback.textContent = "Guardando…";
+
+      if (localAdminMode) {
+        localStorage.setItem("kedavraCatalogDraft", JSON.stringify(content));
+        button.disabled = false;
+        adminPanelFeedback.textContent = "Guardado solo en este dispositivo. Conectá la base online para publicarlo.";
+        return;
+      }
+
+      if (!supabaseClient) {
+        button.disabled = false;
+        adminPanelFeedback.textContent = "La conexión online no está configurada.";
+        return;
+      }
+      const { data: sessionData } = await supabaseClient.auth.getSession();
+      if (!sessionData.session) {
+        button.disabled = false;
+        showLoginView();
+        adminLoginFeedback.textContent = "La sesión venció. Ingresá nuevamente.";
+        return;
+      }
+      const { error } = await supabaseClient.from("site_content").upsert({
+        id: "catalog",
+        content,
+        updated_at: new Date().toISOString()
+      }, { onConflict: "id" });
+      button.disabled = false;
+      adminPanelFeedback.textContent = error
+        ? "No se pudo publicar. Verificá que esta cuenta tenga permiso de administración."
+        : "Cambios publicados correctamente.";
     });
   </script>
 </body>
