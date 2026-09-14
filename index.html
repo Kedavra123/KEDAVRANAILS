@@ -552,14 +552,14 @@
       <div class="admin-content">
         <section class="admin-login" id="adminLoginView">
           <h3>Acceso privado</h3>
-          <p>Ingresá con la cuenta autorizada para modificar el contenido publicado.</p>
+          <p>Ingresá con tu usuario y contraseña para modificar el contenido publicado.</p>
           <div class="admin-notice" id="adminSetupNotice" hidden>
             La conexión online todavía no está configurada. Podés probar el panel en este dispositivo; los cambios locales no se publicarán para otras personas.
           </div>
           <form class="admin-form" id="adminLoginForm">
             <div class="admin-field">
-              <label for="adminEmail">Email</label>
-              <input id="adminEmail" name="email" type="email" autocomplete="username" required>
+              <label for="adminUsername">Usuario</label>
+              <input id="adminUsername" name="username" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" minlength="3" maxlength="40" pattern="[A-Za-z0-9._-]+" required>
             </div>
             <div class="admin-field">
               <label for="adminPassword">Contraseña</label>
@@ -646,7 +646,11 @@
 
       /* Conexión segura del panel. Completá estos dos valores al crear el proyecto en Supabase. */
       supabaseUrl: "https://TU_PROYECTO.supabase.co",
-      supabasePublishableKey: "TU_CLAVE_PUBLICABLE"
+      supabasePublishableKey: "TU_CLAVE_PUBLICABLE",
+
+      /* La clienta inicia sesión con el usuario; el email queda oculto. */
+      adminUsername: "Kedavranails",
+      adminLoginEmail: "peter.santiago45@gmail.com"
     };
 
     const DEFAULT_COURSES = [
@@ -928,13 +932,21 @@
       const formData = new FormData(adminLoginForm);
       adminLoginButton.disabled = true;
       adminLoginFeedback.textContent = "Ingresando…";
+      const username = cleanText(formData.get("username"), 40).toLowerCase();
+
+      if (username !== SITE.adminUsername.toLowerCase()) {
+        adminLoginButton.disabled = false;
+        adminLoginFeedback.textContent = "Usuario o contraseña incorrectos.";
+        return;
+      }
+
       const { error } = await supabaseClient.auth.signInWithPassword({
-        email: cleanText(formData.get("email"), 160),
+        email: SITE.adminLoginEmail,
         password: String(formData.get("password") || "")
       });
       adminLoginButton.disabled = false;
       if (error) {
-        adminLoginFeedback.textContent = "No se pudo ingresar. Revisá el email y la contraseña.";
+        adminLoginFeedback.textContent = "No se pudo ingresar. Revisá el usuario y la contraseña.";
         return;
       }
       adminLoginForm.reset();
