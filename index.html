@@ -526,7 +526,8 @@
           <p>Contame qué querés aprender y te ayudo a encontrar el curso o ebook ideal para vos. Consultá precios, fechas y disponibilidad directamente.</p>
           <div class="actions">
             <a class="btn btn-primary js-general-wa" href="#" target="_blank" rel="noopener">Escribir por WhatsApp ↗</a>
-            <a class="btn btn-secondary" id="instagramLink" href="#" target="_blank" rel="noopener">Ver Instagram ↗</a>
+            <a class="btn btn-secondary" id="instagramAcademyLink" href="#" target="_blank" rel="noopener">Instagram Academy ↗</a>
+            <a class="btn btn-secondary" id="instagramNailsLink" href="#" target="_blank" rel="noopener">Instagram Nails ↗</a>
           </div>
         </div>
       </div>
@@ -639,8 +640,9 @@
        Ejemplo Argentina: 5492911234567
        ================================================================ */
     const SITE = {
-      whatsapp: "549NUMERO_WHATSAPP",
-      instagram: "https://instagram.com/TU_USUARIO",
+      whatsapp: "5491178389914",
+      instagramAcademy: "https://instagram.com/Kedavra_academy",
+      instagramNails: "https://instagram.com/Kedavra_nails",
       city: "[TU CIUDAD]",
       generalMessage: "¡Hola! Vi la página de Kedavra Nails y quisiera consultar por sus cursos y ebooks.",
 
@@ -799,7 +801,8 @@
 
     document.querySelectorAll(".js-general-wa").forEach(link => link.href = whatsappUrl(SITE.generalMessage));
     document.querySelectorAll("[data-city]").forEach(element => element.textContent = SITE.city);
-    document.getElementById("instagramLink").href = SITE.instagram;
+    document.getElementById("instagramAcademyLink").href = SITE.instagramAcademy;
+    document.getElementById("instagramNailsLink").href = SITE.instagramNails;
     document.getElementById("year").textContent = new Date().getFullYear();
     renderCatalog();
     observeReveals();
